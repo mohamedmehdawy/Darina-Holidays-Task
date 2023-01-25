@@ -63,18 +63,24 @@ export class CallServer implements CallServerInterface {
             </soap:Body>
             </soap:Envelope>`
         // send request to server and wait for response
-        const response = await fetch(`${this.endpoint}/service_v4.asmx`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "text/xml; charset=utf-8",
-                "SOAPAction": "http://travelcontrol.softexsw.us/CheckAvailability_ViaPropertiesIds",
-                "Content-Length": soapEnvelope.length.toString(),
-            },
-            body: soapEnvelope,
-        });
+        let response = null;
+        try {
+            response = await fetch(`${this.endpoint}/service_v4.asmx`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "text/xml; charset=utf-8",
+                    "SOAPAction": "http://travelcontrol.softexsw.us/CheckAvailability_ViaPropertiesIds",
+                    "Content-Length": soapEnvelope.length.toString(),
+                },
+                body: soapEnvelope,
+            });
+        } catch(err) {
+            console.log(err);
+        }
+
 
         // check ressonse
-        if (response.ok) {
+        if (response && response.ok) {
             // convert xml response to text
             response.text().then(data => {
                 // main table element
