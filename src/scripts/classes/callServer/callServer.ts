@@ -81,10 +81,12 @@ export class CallServer implements CallServerInterface {
                 const mainTabel = document.querySelector(".main-tabel") as HTMLElement;
 
                 // convert data to js object
-                const result = this.converter(data);
+                const convertedData = this.converter(data);
+
+                console.log(convertedData);
 
                 // access availability
-                const availability = result["soap:Envelope"]["soap:Body"]["CheckAvailability_ViaPropertiesIdsResponse"]["CheckAvailability_ViaPropertiesIdsResult"];
+                const availability = convertedData["soap:Envelope"]["soap:Body"]["CheckAvailability_ViaPropertiesIdsResponse"]["CheckAvailability_ViaPropertiesIdsResult"];
 
                 // get availability data
                 const availability_data = availability["D"];
