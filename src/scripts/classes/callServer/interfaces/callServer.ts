@@ -4,5 +4,5 @@ export interface CallServerInterface {
     converter(data: string): object;
     // setBaseBody(): void;
     getData(): Promise<Object>;
-    render(): void;
+    render(target: HTMLElement, value: string, mode: "assign" | "increase"): void;
 }

@@ -10,8 +10,18 @@
   },
   "devDependencies": {
     "@types/xml2js": "^0.4.11",
+    "@types/xmldom": "^0.1.31",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
-    "xml2js": "^0.4.23"
+    "vite-plugin-node": "^3.0.2",
+    "x2js": "^3.4.4",
+    "xml2js": "^0.4.23",
+    "xmldom": "^0.6.0"
+  },
+  "dependencies": {
+    "xml-js": "^1.6.11"
   }
 }
